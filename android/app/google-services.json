@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "551486060936",
+    "project_id": "elibrary-f92a9",
+    "storage_bucket": "elibrary-f92a9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:551486060936:android:2b7aeaf06039f15252e23d",
+        "android_client_info": {
+          "package_name": "com.mseplatform.elibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "551486060936-ct8j624ae9ot1rfd45epsstjrjp7c6b8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANJGTP9QGqBZs9NGH61qOhSfRQqrayN68"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "551486060936-ct8j624ae9ot1rfd45epsstjrjp7c6b8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
