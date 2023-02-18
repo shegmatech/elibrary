@@ -8,5 +8,6 @@ abstract class IAuthFacade {
       required String email,
       required String password});
 
-  
+  Future<Either<GeneralFailure, String>> login(
+      {required String email, required String password});
 }

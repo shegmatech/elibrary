@@ -8,8 +8,10 @@
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'domain/auth/i_auth_facade.dart' as _i4;
-import 'infrastructure/auth/firebase_auth.dart' as _i5;
+import 'domain/auth/i_auth_facade.dart' as _i6;
+import 'domain/book/book_serivce.dart' as _i4;
+import 'infrastructure/auth/firebase_auth.dart' as _i7;
+import 'infrastructure/book/book_repo.dart' as _i5;
 import 'presentattion/routes/app_router.gr.dart'
     as _i3; // ignore_for_file: unnecessary_lambdas
 
@@ -26,6 +28,7 @@ _i1.GetIt $initGetIt(
     environmentFilter,
   );
   gh.lazySingleton<_i3.AppRouter>(() => _i3.AppRouter());
-  gh.lazySingleton<_i4.IAuthFacade>(() => _i5.FirebaseAuthFacade());
+  gh.lazySingleton<_i4.BookService>(() => _i5.BookRepo());
+  gh.lazySingleton<_i6.IAuthFacade>(() => _i7.FirebaseAuthFacade());
   return get;
 }

@@ -29,4 +29,24 @@ class AuthViewModel extends BaseViewModel {
       _appRouter.replace(const LoginRoute());
     });
   }
+
+  void login({required String email, required String password}) async {
+    setBusy(true);
+    final failureOrSuccessOption =
+        await _auth.login(email: email, password: password);
+    failureOrSuccessOption.fold((l) {
+      setBusy(false);
+      showErrorToast(l.message!);
+    }, (r) {
+      setBusy(false);
+      // showSuccessToast(r);
+      // if (r == "1") {
+      // _appRouter.replace(const UserHome());
+      // } else {
+      _appRouter.replace(const AdminHome());
+      // }
+
+      // _appRouter.replace(const LoginRoute());
+    });
+  }
 }
