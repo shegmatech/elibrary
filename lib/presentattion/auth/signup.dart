@@ -98,21 +98,23 @@ class _SignupPageState extends State<SignupPage> {
                   style: const TextStyle(color: Colors.white),
                   controller: password),
               const SizedBox(height: 30),
-              ElevatedButton(
-                onPressed: () {
-                  // Implement sign-up logic
-                  // Navigator.pushReplacement(
-                  //     context,
-                  //     MaterialPageRoute(
-                  //         builder: (context) => const ListPage()));
-                  model.sinupUser(
-                      firstName: firstName.text,
-                      lastName: lastName.text,
-                      email: email.text,
-                      password: password.text);
-                },
-                child: const Text('Sign up'),
-              ),
+              model.isBusy
+                  ? CircularProgressIndicator()
+                  : ElevatedButton(
+                      onPressed: () {
+                        // Implement sign-up logic
+                        // Navigator.pushReplacement(
+                        //     context,
+                        //     MaterialPageRoute(
+                        //         builder: (context) => const ListPage()));
+                        model.sinupUser(
+                            firstName: firstName.text,
+                            lastName: lastName.text,
+                            email: email.text,
+                            password: password.text);
+                      },
+                      child: const Text('Sign up'),
+                    ),
               const SizedBox(
                 height: 10,
               ),

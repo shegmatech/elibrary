@@ -18,7 +18,12 @@ class FirebaseAuthFacade implements IAuthFacade {
           email: email, password: password);
       return right(result.user!.uid);
     } on FirebaseAuthException catch (e) {
-      return left( GeneralFailure.badRequest(e.message));
+      return left(GeneralFailure.badRequest(e.message));
     }
   }
+
+  addUserToFireStore(
+      {required String firstName,
+      required String lastName,
+      required String email}) async {}
 }
