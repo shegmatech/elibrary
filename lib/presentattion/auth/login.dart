@@ -1,9 +1,13 @@
-import 'package:elibrary/views/signup.dart';
+import 'package:auto_route/auto_route.dart';
+import 'package:elibrary/presentattion/auth/signup.dart';
+import 'package:elibrary/presentattion/routes/app_router.gr.dart';
 import 'package:flutter/material.dart';
 
-import 'list_page.dart';
+import '../list_page.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
@@ -29,13 +33,13 @@ class _LoginPageState extends State<LoginPage> {
                 hintText: 'Email',
                 hintStyle: TextStyle(color: Colors.white),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: const BorderSide(color: Colors.white),
+                  borderSide: BorderSide(color: Colors.white),
                 ),
                 focusedBorder: UnderlineInputBorder(
                   borderSide: BorderSide(color: Colors.white),
                 ),
               ),
-              style: const TextStyle(color: Colors.white),
+              style: TextStyle(color: Colors.white),
             ),
             const SizedBox(height: 20),
             const TextField(
@@ -56,7 +60,8 @@ class _LoginPageState extends State<LoginPage> {
             ElevatedButton(
               onPressed: () {
                 //implement login logic
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>ListPage()));
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => const ListPage()));
               },
               child: const Text('Login'),
             ),
@@ -64,7 +69,8 @@ class _LoginPageState extends State<LoginPage> {
             GestureDetector(
               onTap: () {
                 // Navigate to signup Page
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>SignupPage()));
+                // Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>const SignupPage()));
+                AutoRouter.of(context).replace(const SignupRoute());
               },
               child: const Text(
                 'Not registered yet? Sign up now!',
