@@ -39,12 +39,12 @@ class AuthViewModel extends BaseViewModel {
       showErrorToast(l.message!);
     }, (r) {
       setBusy(false);
-      // showSuccessToast(r);
-      // if (r == "1") {
-      // _appRouter.replace(const UserHome());
-      // } else {
-      _appRouter.replace(const AdminHome());
-      // }
+      showSuccessToast(r);
+      if (r == "1") {
+        _appRouter.replace(const UserHome());
+      } else {
+        _appRouter.replace(const AdminHome());
+      }
 
       // _appRouter.replace(const LoginRoute());
     });

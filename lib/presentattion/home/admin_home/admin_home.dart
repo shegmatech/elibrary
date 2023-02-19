@@ -17,6 +17,7 @@ class AdminHome extends StatefulWidget {
 class _AdminHomeState extends State<AdminHome> {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return ViewModelBuilder<HomeViewModel>.reactive(
       onViewModelReady: (h) {
         h.fetchBooksForAdmin();
@@ -33,7 +34,38 @@ class _AdminHomeState extends State<AdminHome> {
               itemCount: model.filteredBooList.length,
               itemBuilder: (context, index) {
                 BookModel bm = model.filteredBooList[index];
-                return Text(bm.title);
+                return InkResponse(
+                  onTap: () {
+                    AutoRouter.of(context)
+                        .push(BookDetails(book: bm, isAdmin: true));
+                  },
+                  child: Card(
+                      // color: Colors.amber[0],
+                      child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Container(
+                        height: size.height * 0.08,
+                        color: Colors.amber[0],
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(bm.title,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 15.sp,
+                                      fontStyle: FontStyle.italic)),
+                              Text(bm.author,
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.w700,
+                                      fontSize: 15.sp,
+                                      fontStyle: FontStyle.italic)),
+                            ],
+                          ),
+                        )),
+                  )),
+                );
               },
             )
           ]),

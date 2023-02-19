@@ -3,31 +3,43 @@ import 'dart:convert';
 class BookModel {
   String title;
   String author;
+  String admin;
   String price;
   String content;
   bool isRequested;
+  bool isApproved;
+  String imgurl;
   BookModel({
     required this.title,
     required this.author,
+    required this.admin,
     required this.price,
     required this.content,
     required this.isRequested,
+    required this.isApproved,
+    required this.imgurl,
   });
   
 
   BookModel copyWith({
     String? title,
     String? author,
+    String? admin,
     String? price,
     String? content,
     bool? isRequested,
+    bool? isApproved,
+    String? imgurl,
   }) {
     return BookModel(
       title: title ?? this.title,
       author: author ?? this.author,
+      admin: admin ?? this.admin,
       price: price ?? this.price,
       content: content ?? this.content,
       isRequested: isRequested ?? this.isRequested,
+      isApproved: isApproved ?? this.isApproved,
+      imgurl: imgurl ?? this.imgurl,
     );
   }
 
@@ -35,9 +47,12 @@ class BookModel {
     return {
       'title': title,
       'author': author,
+      'admin': admin,
       'price': price,
       'content': content,
       'isRequested': isRequested,
+      'isApproved': isApproved,
+      'imgurl': imgurl,
     };
   }
 
@@ -45,9 +60,12 @@ class BookModel {
     return BookModel(
       title: map['title'] ?? '',
       author: map['author'] ?? '',
+      admin: map['admin'] ?? '',
       price: map['price'] ?? '',
       content: map['content'] ?? '',
       isRequested: map['isRequested'] ?? false,
+      isApproved: map['isApproved'] ?? false,
+      imgurl: map['imgurl'] ?? '',
     );
   }
 
@@ -57,7 +75,7 @@ class BookModel {
 
   @override
   String toString() {
-    return 'BookModel(title: $title, author: $author, price: $price, content: $content, isRequested: $isRequested)';
+    return 'BookModel(title: $title, author: $author, admin: $admin, price: $price, content: $content, isRequested: $isRequested, isApproved: $isApproved, imgurl: $imgurl)';
   }
 
   @override
@@ -67,17 +85,23 @@ class BookModel {
     return other is BookModel &&
       other.title == title &&
       other.author == author &&
+      other.admin == admin &&
       other.price == price &&
       other.content == content &&
-      other.isRequested == isRequested;
+      other.isRequested == isRequested &&
+      other.isApproved == isApproved &&
+      other.imgurl == imgurl;
   }
 
   @override
   int get hashCode {
     return title.hashCode ^
       author.hashCode ^
+      admin.hashCode ^
       price.hashCode ^
       content.hashCode ^
-      isRequested.hashCode;
+      isRequested.hashCode ^
+      isApproved.hashCode ^
+      imgurl.hashCode;
   }
 }

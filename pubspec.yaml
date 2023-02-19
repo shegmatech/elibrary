@@ -45,6 +45,8 @@ dependencies:
   stacked:
   freezed: ^2.3.2
   fluttertoast: ^8.1.2
+  firebase_storage: ^11.0.12
+  image_picker: ^0.8.6+2
 
 dev_dependencies:
   flutter_test:
